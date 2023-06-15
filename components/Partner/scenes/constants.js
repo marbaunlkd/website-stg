@@ -1,0 +1,5 @@
+export const WHITE = '#FFFFFF'
+export const GRAY = '#EDEDEF'
+export const GREEN = '#2DE7C8'
+export const PURPLE = '#807DFF'
+export const BORDER = '1px solid black'
