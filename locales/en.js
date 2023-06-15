@@ -13,13 +13,13 @@ export default {
   hero: {
     card1: {
       title:
-        'The investment and acceleration program is for startups that want to transform the industry.',
-      cta: 'Enroll your startup',
+        'We invest in and accelerate startups dedicated to digital transformation and sustainability to impact the future of the industry.',
+      cta: 'Investment Thesis',
     },
     card2: {
       title:
-        'We invest in and accelerate startups dedicated to digital transformation and sustainability to impact the future of the industry.',
-      cta: 'Investment Thesis',
+        'The investment and acceleration program is for startups that want to transform the industry.',
+      cta: 'Enroll your startup',
     },
     card3: {
       title:

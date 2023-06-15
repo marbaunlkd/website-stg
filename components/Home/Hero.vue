@@ -4,15 +4,15 @@
   >
     <transition name="slide-fade">
       <VueLottie
-        v-if="sliderPageIndex === 2"
+        v-if="sliderPageIndex === 1"
         :width="500"
         :options="lottieOptions1"
-        class="pointer-events-none -top-[38px] lg:top-[207px] !h-auto absolute right-0"
+        class="pointer-events-none -top-[38px] lg:top-[260px] !h-auto absolute right-0"
       />
     </transition>
     <transition name="slide-fade">
       <nuxt-img
-        v-if="sliderPageIndex === 1"
+        v-if="sliderPageIndex === 2"
         preload
         :src="require(`~/assets/img/hero/bg-2.png`)"
         format="webp"
@@ -20,7 +20,7 @@
         quality="100"
         loading="lazy"
         aria-hidden
-        class="absolute hidden lg:block left-0 top-[51px]"
+        class="absolute hidden lg:block left-0 top-[106px]"
       />
     </transition>
 
@@ -43,7 +43,7 @@
         v-if="sliderPageIndex === 3"
         :width="500"
         :options="lottieOptions2"
-        class="pointer-events-none top-[58px] lg:top-[250px] !h-auto absolute right-0"
+        class="pointer-events-none top-[58px] lg:top-[305px] !h-auto absolute right-0"
       />
     </transition>
 
@@ -52,7 +52,7 @@
         v-if="sliderPageIndex === 4"
         :width="500"
         :options="lottieOptions3"
-        class="pointer-events-none top-[78px] lg:top-[180px] !h-auto absolute -right-[306px] lg:right-0"
+        class="pointer-events-none top-[78px] lg:top-[235px] !h-auto absolute -right-[306px] lg:right-0"
       />
     </transition>
 
@@ -69,9 +69,9 @@
           class="w-full !flex flex-col relative lg:ml-2"
           :class="[
             {
-              'mt-[102px] lg:mt-0': item.value === 2,
+              'mt-[102px] lg:mt-0': item.value === 1,
               'max-w-[500px] mr-[150px] !ml-auto mt-[164px] lg:mt-0':
-                item.value === 1,
+                item.value === 2,
               ' mt-[117px] lg:mt-0': item.value === 3,
               ' mt-[118px] lg:mt-0': item.value === 4,
             },
@@ -80,7 +80,7 @@
           <p
             :class="[
               {
-                '!max-w-[500px]': item.value === 1,
+                '!max-w-[500px]': item.value === 2,
                 fade: true,
                 show: item.show,
               },
@@ -91,8 +91,7 @@
           </p>
 
           <a
-            v-if="item.value === 1"
-            href="https://labs.oxygea.com/"
+            v-if="item.value === 2"
             target="_Blank"
             title="Inscreva sua startup"
             :class="[
@@ -102,12 +101,13 @@
               },
             ]"
             class="text-violet font-bold font-poppins text-xs py-4 px-8 border-2 border-violet rounded-full max-w-max lg:text-base cursor-pointer transition-colors hover:bg-violet hover:text-black"
+            @click="$nuxt.$emit('openModalContact')"
           >
             {{ $t(`hero.card${item.value}.cta`) }}
           </a>
 
           <nuxt-link
-            v-if="item.value !== 1"
+            v-if="item.value !== 2"
             :to="
               localeLocation({
                 name: 'index',
@@ -190,7 +190,7 @@ export default {
         dots: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 6000,
         infinite: true,
         pauseOnHover: false,
@@ -199,12 +199,12 @@ export default {
       sliderPageIndex: 0,
       sliderPageIndexBTN: true,
       itens: [
+        { value: 1, hash: 'partners', show: true },
         {
-          value: 1,
+          value: 2,
           hash: 'investment',
-          show: true,
+          show: false,
         },
-        { value: 2, hash: 'partners', show: false },
         { value: 3, hash: 'programs', show: false },
         { value: 4, hash: 'partners', show: false },
       ],

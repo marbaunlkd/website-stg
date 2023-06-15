@@ -44,12 +44,8 @@
           <div
             v-for="(item, index) of itens"
             :key="index"
-            class="w-full bg-green px-6 py-6 lg:bg-white transition-colors duration-300 ease-linear"
-            :class="[
-              {
-                'lg:bg-green': item.value === selected,
-              },
-            ]"
+            class="w-full bg-green px-6 py-6 transition-colors duration-300 ease-linear"
+            :class="item.value === selected ? 'lg:bg-green' : 'lg:bg-white'"
             @mouseenter="($event) => setSelected(item.value)"
           >
             <h2
