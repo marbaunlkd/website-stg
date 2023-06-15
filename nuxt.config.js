@@ -8,6 +8,11 @@ export default {
     htmlAttrs: {
       lang: 'pt-br',
     },
+    script: [
+      {
+        src: 'https://platform.illow.io/banner.js?siteId=7812e876-c218-4bf2-800b-a70e36e43ef4',
+      },
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -163,17 +168,19 @@ export default {
       },
     },
     postcss: {
-      plugins: {
-        'postcss-import': {},
-        'tailwindcss/nesting': {},
-        tailwindcss: {
-          content: [
-            './src/components/**/*.{js,ts,vue}',
-            './src/layouts/**/*.{js,ts,vue}',
-            './src/pages/**/*.{js,ts,vue}',
-          ],
+      postcssOptions: {
+        plugins: {
+          'postcss-import': {},
+          'tailwindcss/nesting': {},
+          tailwindcss: {
+            content: [
+              './src/components/**/*.{js,ts,vue}',
+              './src/layouts/**/*.{js,ts,vue}',
+              './src/pages/**/*.{js,ts,vue}',
+            ],
+          },
+          autoprefixer: {},
         },
-        autoprefixer: {},
       },
     },
   },

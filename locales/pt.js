@@ -13,13 +13,13 @@ export default {
   hero: {
     card1: {
       title:
-        'O programa de aceleração e investimento para startups que querem transformar a indústria.',
-      cta: 'Inscreva sua startup',
+        'Investimos e aceleramos startups dedicadas à sustentabilidade e tecnologia para transformar o futuro da indústria.',
+      cta: 'Tese de investimento',
     },
     card2: {
       title:
-        'Investimos e aceleramos startups dedicadas à sustentabilidade e tecnologia para transformar o futuro da indústria.',
-      cta: 'Tese de investimento',
+        'O programa de aceleração e investimento para startups que querem transformar a indústria.',
+      cta: 'Inscreva sua startup',
     },
     card3: {
       title:

@@ -34,10 +34,10 @@
         </div>
       </div>
       <a
-        href="https://labs.oxygea.com/"
         title="Inscreva sua startup"
         target="_Blank"
-        class="max-w-max cursor-pointer block mt-5 lg:mt-[72px] rounded-[100px] font-medium text-xxs lg:text-xs bg-black text-white self-center px-8 py-4 font-poppins lg:ml-[108px]"
+        class="max-w-max cursor-pointer block mt-5 lg:mt-[72px] rounded-[100px] font-bold text-xxs lg:text-base bg-black text-white self-center px-8 py-4 font-poppins lg:ml-[108px]"
+        @click="$nuxt.$emit('openModalContact')"
       >
         {{ $t('invest.cta') }}
       </a>
