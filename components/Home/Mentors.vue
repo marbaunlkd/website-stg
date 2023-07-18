@@ -277,13 +277,6 @@ export default {
           link: 'https://www.linkedin.com/in/edison-terra/',
         },
         {
-          slug: 'daniel-sales',
-          name: 'Daniel Sales',
-          image: 'Daniel-Sales.png',
-          vertical: 'Business',
-          link: 'https://www.linkedin.com/in/petrodan68/',
-        },
-        {
           slug: 'pedro-freitas',
           name: 'Pedro Freitas',
           image: 'Pedro-Freitas.png',
