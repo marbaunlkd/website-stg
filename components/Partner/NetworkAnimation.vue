@@ -1,65 +1,37 @@
 <template>
   <section
-    class="h-[638px] md:h-[766px] bg-gray flex justify-center items-center xl:h-[2700px] xl:items-start"
+    class="h-[3000px] flex justify-center items-center flex-col gap-4 bg-gray"
     @scroll="handleScroll"
   >
     <div
-      class="flex flex-col items-center gap-[10px] md:w-[1300px] md:h-[653px] md:sticky md:top-[160px] md:mb-[80px]"
+      class="w-[1300px] flex justify-center items-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      :style="{ height: containerHeight[scene] }"
     >
-      <div class="flex flex-col mx-5 xl:w-[640px] xl:gap-6 xl:self-start">
-        <h1 class="font-bold text-2xl md:text-5xl">Parceiros</h1>
-        <p class="font-poppins text-xs md:text-base xl:ml-[110px]">
-          O fazer junto potencializa resultados. Nos conectamos tanto com as
-          instituições locais, quanto com as mundialmente renomadas. São
-          conexões que compartilham expertise e proporcionam o que as startups
-          mais precisam.
-        </p>
-      </div>
       <div
-        class="w-[1300px] relative hidden xl:flex"
-        :style="{ height: containerHeight[scene] }"
-      >
-        <a
-          v-for="(item, index) in positionNodes[scene]"
-          :id="index"
-          :key="index"
-          :href="item.link ? item.link : null"
-          :style="handleNode(item, 0)"
-          class="node"
-        />
-        <div
-          v-for="(item, index) in lines"
-          :id="index"
-          :key="index"
-          class="line"
-          :style="handleLine(item)"
-        />
-      </div>
-      <div class="w-full xl:hidden">
-        <Carousel />
-      </div>
+        v-for="(item, index) in positionNodes[scene]"
+        :id="index"
+        :key="index"
+        class="node"
+        :style="handleNode(item)"
+      />
+      <div
+        v-for="(item, index) in lines"
+        :id="index"
+        :key="index"
+        class="line"
+        :style="handleLine(item.from, item.to, item.borderColor)"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import { calcDeg, calcDiag } from './calc'
-import { lines } from './NetworkAnimation/Lines'
-import {
-  sceneZero,
-  sceneOne,
-  sceneTwo,
-  sceneThree,
-  sceneFour,
-} from './NetworkAnimation/Scenes'
-
-import Carousel from './NetworkCarousel/Carousel.vue'
+import { sceneZero, sceneOne, sceneTwo, sceneThree, sceneFour } from './scenes'
+import { lines } from './lines'
 
 export default {
-  name: 'Partners',
-  components: {
-    Carousel,
-  },
+  name: 'NetworkAnimation',
   data() {
     return {
       positionNodes: {
@@ -87,7 +59,7 @@ export default {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    handleLine({ from, to, borderColor }) {
+    handleLine(from, to, borderColor) {
       let x1 = 0
       let y1 = 0
       let x2 = 0
@@ -115,7 +87,8 @@ export default {
         transition: 'top 0.5s, left 0.5s, transform 0.5s, width 0.5s',
       }
     },
-    handleNode({ top, left, size, border, background }) {
+    handleNode(node) {
+      const { top, left, size, border, background } = node
       return {
         top: `${top}px`,
         left: `${left}px`,
@@ -131,21 +104,20 @@ export default {
 
       clearTimeout(timeoutId)
       timeoutId = setTimeout(() => {
-        const height = 5436
         const scrollPos = window.scrollY
 
-        if (scrollPos < height + 250) {
+        if (scrollPos < 400) {
           this.scene = 0
-        } else if (scrollPos > height + 250 && scrollPos < height + 500) {
+        } else if (scrollPos > 400 && scrollPos < 700) {
           this.scene = 1
-        } else if (scrollPos > height + 500 && scrollPos < height + 750) {
+        } else if (scrollPos > 700 && scrollPos < 1000) {
           this.scene = 2
-        } else if (scrollPos > height + 950 && scrollPos < height + 1200) {
+        } else if (scrollPos > 1000 && scrollPos < 1500) {
           this.scene = 3
-        } else if (scrollPos > height + 1200) {
+        } else if (scrollPos > 1500) {
           this.scene = 4
         }
-      }, 75)
+      }, 200)
     },
   },
 }

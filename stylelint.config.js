@@ -5,5 +5,12 @@ module.exports = {
   // https://stylelint.io/user-guide/configuration
   rules: {
     'media-feature-range-notation': 'prefix',
+    'at-rule-empty-line-before': ['always'],
+    'rule-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested'],
+      },
+    ],
   },
 }

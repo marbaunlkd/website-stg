@@ -1,10 +1,9 @@
-import { WHITE, GRAY, BORDER, GREEN_DARK, PURPLE_DARK } from '../../constants'
+import cubo from '../../../assets/img/partners/cubo.svg'
+import distrito from '../../../assets/img/partners/distrito.svg'
+import fiemg from '../../../assets/img/partners/05.png'
+import ib from '../../../assets/img/partners/01.png'
 
-import cubo from '~/assets/img/partners/16.svg'
-import distrito from '~/assets/img/partners/17.svg'
-import fiemg from '~/assets/img/partners/05.png'
-import ib from '~/assets/img/partners/01.png'
-
+import { WHITE, GRAY, BORDER, GREEN, PURPLE } from './constants'
 
 export const sceneTwo = {
   'white-0': {
@@ -18,7 +17,6 @@ export const sceneTwo = {
     top: 247,
     size: 80,
     background: `url(${ib}) no-repeat center, ${WHITE}`,
-    link: '#',
   },
   'white-2': {
     left: 591.64,
@@ -31,7 +29,6 @@ export const sceneTwo = {
     top: 108,
     size: 80,
     background: `url(${fiemg}) no-repeat center, ${WHITE}`,
-    link: '#',
   },
   'white-4': {
     left: 619.72,
@@ -44,7 +41,6 @@ export const sceneTwo = {
     top: 0,
     size: 80,
     background: `url(${cubo}) no-repeat center, ${WHITE}`,
-    link: '#',
   },
   'white-6': {
     left: 1087.12,
@@ -76,7 +72,6 @@ export const sceneTwo = {
     size: 80,
     background: `url(${distrito}) no-repeat center, ${GRAY}`,
     border: BORDER,
-    link: '#',
   },
   'border-1': {
     left: 735.23,
@@ -117,24 +112,24 @@ export const sceneTwo = {
     left: 272.3,
     top: 158.92,
     size: 8,
-    background: GREEN_DARK,
+    background: GREEN,
   },
   'small-1': {
     left: 859,
     top: 245,
     size: 8,
-    background: GREEN_DARK,
+    background: GREEN,
   },
   'small-2': {
     left: 514.4,
     top: 388.41,
     size: 8,
-    background: PURPLE_DARK,
+    background: PURPLE,
   },
   'small-3': {
     left: 487.8,
     top: 51.59,
     size: 8,
-    background: PURPLE_DARK,
+    background: PURPLE,
   },
 }
